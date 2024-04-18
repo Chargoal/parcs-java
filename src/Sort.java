@@ -84,10 +84,8 @@ public class Sort implements AM {
         System.err.println("Printing result...");
         startTimer();
         BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
-        /*for (int i = 0; i <= 99; i++)
-            writer.write(arr[(int) ((long)(arr.length - 1) * i / 99)] + "\n");*/
-        for (int i = 0; i < arr.length; i++) {
-            writer.write(arr[i] + "\n");}
+        for (int i = 0; i <= 99; i++)
+            writer.write(arr[(int) ((long)(arr.length - 1) * i / 99)] + "\n");
         writer.close();
         stopTimer();
         
