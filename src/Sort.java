@@ -18,6 +18,19 @@ public class Sort implements AM {
         double seconds = timeElapsed / 1_000_000_000.0;
         System.err.println("Time passed: " + seconds + " seconds.");
     }
+    public static void bubbleSort(int[] arr) {
+        int n = arr.length;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    // Swap arr[j] and arr[j+1]
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+    }
 
     public static void main(String[] args) throws Exception {
         System.err.println("Preparing...");
@@ -71,8 +84,10 @@ public class Sort implements AM {
         System.err.println("Printing result...");
         startTimer();
         BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
-        for (int i = 0; i <= 99; i++)
-            writer.write(arr[(int) ((long)(arr.length - 1) * i / 99)] + "\n");
+        /*for (int i = 0; i <= 99; i++)
+            writer.write(arr[(int) ((long)(arr.length - 1) * i / 99)] + "\n");*/
+        for (int i = 0; i < arr.length; i++) {
+            writer.write(arr[i] + "\n");
         writer.close();
         stopTimer();
         
@@ -103,7 +118,7 @@ public class Sort implements AM {
 
         System.err.println("Sorting array with " + arr.length + " elements...");
         startTimer();
-        Arrays.sort(arr);
+        bubbleSort(arr);
         stopTimer();
 
         System.out.println("Sending sorted part to parent...");

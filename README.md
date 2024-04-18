@@ -12,7 +12,7 @@ $ gcloud compute instances create daemon-1 daemon-2 daemon-3 daemon-4 daemon-5 d
 # Daemons
 
 ```shell
-$ sudo apt-get update && sudo apt-get install -y openjdk-17-jdk
+$ sudo apt-get update && sudo apt-get install -y default-jdk
 $ wget https://github.com/lionell/labs/raw/master/parcs/Daemon/Daemon.jar
 $ java -jar Daemon.jar
 ```
@@ -20,7 +20,7 @@ $ java -jar Daemon.jar
 # Hosts server
 
 ```shell
-$ sudo apt-get update && sudo apt-get install -y openjdk-17-jdk
+$ sudo apt-get update && sudo apt-get install -y default-jdk
 $ wget https://github.com/lionell/labs/raw/master/parcs/HostsServer/TCPHostsServer.jar
 $ cat > hosts.list
 $daemon_1_internal_ip
@@ -35,9 +35,9 @@ $ java -jar TCPHostsServer.jar
 # App
 
 ```shell
-$ sudo apt-get update && sudo apt-get install -y openjdk-17-jdk git make
-$ git clone https://github.com/VladProg/parcs-java-sort.git
-$ cd parcs-java-sort
+$ sudo apt-get update && sudo apt-get install -y default-jdk git make
+$ git clone https://github.com/Chargoal/parcs-java.git
+$ cd parcs-java
 $ echo $hosts_server_internal_ip > out/server
 $ make run WORKERS=$number_of_workers <<< "$n $seed" > $output_file_name
 ```
