@@ -101,7 +101,7 @@ public class Sort implements AM {
         int[] arr = new int[n];
         Random rng = new Random(seed);
         for (int i = 0; i < n; i++)
-            arr[i] = rng.nextInt();
+            arr[i] = Math.abs(rng.nextInt());
 
         scanner.close();
 
